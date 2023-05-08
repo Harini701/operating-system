@@ -1,0 +1,25 @@
+Write a C program to create a file using the system call. Read the data from the user and write the same in the file. Also, Read the data from the file and print the same in the console.#include <stdio.h>
+program:
+#include<ctype.h>
+#include<stdlib.h>
+int main()
+{
+   char ch;
+   FILE *fp;
+   fp=fopen("std1.txt","w");
+   printf("enter the text:");
+   while((ch = getchar())!=EOF){
+      putc(ch,fp);
+   }
+   fclose(fp);
+   fp=fopen("std1.txt","r");
+   printf("text on the file: ");
+   while ((ch=getc(fp))!=EOF){
+      if(ch == ',')
+         printf("\t\t");
+      else
+         printf("%c",ch);
+   }
+   fclose(fp);
+   return 0;
+}
